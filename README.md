@@ -39,7 +39,9 @@ for API service to start working fine.
 
 ### Frontend service:
 
-I've made it run in prod mode, so you can see the optimizations made on JS/CSS.
+- I've made it run in prod mode, so you can see the optimizations made on JS/CSS.
+- I'm using [Webpack](https://webpack.js.org/) instead of Gulp/Grunt, Webpack can do 
+everything they do, and more.
 
 ### Notes on the coding challenge doc:
 At the top of the document, you mentioned `search/full`, and to disable all keywords < 3.
