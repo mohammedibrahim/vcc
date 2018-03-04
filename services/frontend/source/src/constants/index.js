@@ -1,0 +1,1 @@
+export const MIN_SEARCH_KEYWORD_LENGTH = 3;

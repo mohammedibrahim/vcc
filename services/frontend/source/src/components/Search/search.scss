@@ -1,0 +1,16 @@
+.search-container {
+  .search-results {
+    position: absolute;
+    width: 100%;
+    left: 20px;
+    top: 66px;
+    z-index: 1;
+    overflow-y: auto;
+
+    img {
+      width: 50px;
+      margin: 50px auto;
+      display: block;
+    }
+  }
+}

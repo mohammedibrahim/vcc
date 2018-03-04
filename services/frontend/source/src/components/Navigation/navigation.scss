@@ -1,0 +1,19 @@
+.main-nav {
+  max-width: 80%;
+  margin: 20px auto !important;
+  &--item {
+    font-size: 17px;
+    color: #4c4b4c;
+    text-align: center;
+    cursor: pointer;
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: 0.3s ease all;
+      color: #4c4b4c;
+      padding-bottom: 5px;
+      border-bottom: transparent 3px solid;
+      &:hover { border-bottom: #97ab9f 3px solid; }
+    }
+  }
+}

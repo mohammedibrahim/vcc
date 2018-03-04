@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "name": "elasticsearch",
+      "interpreter": "sh",
+      "user": "elasticsearch",
+      "script": "elasticsearch",
+      "watch": false,
+      "autorestart": true
+    },
+    {
+      "name": "kit",
+      "script": "/app/index.js",
+      "watch": false,
+      "autorestart": true
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+## -------------------------- DOCKER-COMPOSE VERSION ---------------------------
+version: '3'
+
+## --------------------------------- SERVICES ----------------------------------
+services:
+
+  # ------------------------------- WEB PROXY ---------------------------------
+  nginx:
+    build: ./services/nginx
+    volumes:
+      - ./services/nginx/conf.d:/etc/nginx/conf.d
+      - ./services/nginx/html:/data/nginx/html
+    ports:
+     - "80:80"
+
+  ## ----------------------------- ELASTIC SEARCH ------------------------------
+  elasticsearch:
+    build: ./services/elasticsearch/build
+    environment:
+      - discovery.type=single-node
+      - RABBIT_AMQP_URL=amqp://rabbit
+    volumes:
+      - ./services/elasticsearch/source:/app
+      - ./services/elasticsearch/data:/elasticdata
+    expose:
+      - 9200
+      - 9300
+
+  ## -----------------------------   RABBIT  MQ   ------------------------------
+  rabbit:
+    image: rabbitmq:alpine
+    volumes:
+      - ./services/rabbitmq/build:/etc/rabbitmq
+    expose:
+      - 5672
+
+  ## --------------------------------    API    ---------------------------------
+  api:
+    build: ./services/api/build
+    environment:
+      - RABBIT_AMQP_URL=amqp://rabbit
+    volumes:
+      - ./services/api/source:/app
+    expose:
+      - 3000
+
+  ## -------------------------------- FRONTEND ---------------------------------
+  frontend:
+    build: ./services/frontend/build
+    volumes:
+      - ./services/frontend/source:/app
+    expose:
+      - 3000
