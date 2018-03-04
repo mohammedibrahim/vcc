@@ -12,8 +12,8 @@ RUN yarn global add pm2
 
 COPY processes.json /
 
-WORKDIR /
+WORKDIR /app
 
 USER elasticsearch
 
-CMD yarn install && pm2 start processes.json && pm2 logs
+CMD yarn install && pm2 start /processes.json && pm2 logs
